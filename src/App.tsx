@@ -1,25 +1,24 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Signup from "./pages/Signup.page";
+import Login from "./pages/login.page";
+import Home from "./pages/home.page";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Feature flag system
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <section>
+          <Routes>
+            {" "}
+            <Route path="/home" element={<Home />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </section>
+      </div>
+    </Router>
   );
 }
 
