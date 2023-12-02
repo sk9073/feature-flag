@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 
-const Signup = () => {
+export const Signup = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -73,5 +73,3 @@ const Signup = () => {
     </main>
   );
 };
-
-export default Signup;
