@@ -1,7 +1,9 @@
 import React from "react";
 import { signOut } from "firebase/auth";
-import { auth } from "../../firebase";
+import { getFirebase } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+
+const { auth } = getFirebase();
 
 export const Home = () => {
   const navigate = useNavigate();

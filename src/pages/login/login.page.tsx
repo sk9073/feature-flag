@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
+import { signInUser } from "../../firebase";
 import { NavLink, useNavigate } from "react-router-dom";
 
 export const Login = () => {
@@ -8,20 +7,12 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onLogin = (e: any) => {
+  const onLogin = async (e: any) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        navigate("/home");
-        console.log(user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
+    const user = await signInUser(email, password); // Wait for the asynchronous operation
+    if (user) {
+      navigate("/home");
+    }
   };
 
   return (

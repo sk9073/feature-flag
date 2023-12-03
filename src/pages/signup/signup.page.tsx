@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
+import { signUpUser } from "../../firebase";
 
 export const Signup = () => {
   const navigate = useNavigate();
@@ -11,21 +10,10 @@ export const Signup = () => {
 
   const onSubmit = async (e: any) => {
     e.preventDefault();
-
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
-        navigate("/login");
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        // ..
-      });
+    const user = await signUpUser(email, password);
+    if (user) {
+      navigate("/");
+    }
   };
 
   return (
