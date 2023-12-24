@@ -13,7 +13,7 @@ export const Home = () => {
       .then(() => {
         // Sign-out successful.
         navigate("/signup");
-        console.log("Signed out  successfully");
+        console.log("Signed out successfully");
       })
       .catch((error) => {
         // An error happened.
