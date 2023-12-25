@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "feature-flag-system-65ea5"
-  }
+  },
+  "targets": {
+    "feature-flag-system-65ea5": {
+      "hosting": {
+        "featureflag1": [
+          "feature-flag-system"
+        ],
+        "featureflag": [
+          "feature-flag-system-65ea5"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
