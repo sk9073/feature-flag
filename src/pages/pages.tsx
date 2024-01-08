@@ -9,16 +9,16 @@ export const Pages = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!auth.currentUser) {
-      navigate("/");
+    if (!auth.currentUser && window.location.pathname !== "/signup") {
+      navigate("/login");
     }
   }, []);
 
   return (
     <Routes>
       {" "}
-      <Route path="/" element={<Login />} />
-      <Route path="/home" element={<Home />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />{" "}
     </Routes>
   );
