@@ -22,7 +22,7 @@ export const Home = () => {
 
   useEffect(() => {
     if (!auth.currentUser) {
-      navigate("/");
+      navigate("/login");
     }
   }, []);
 
